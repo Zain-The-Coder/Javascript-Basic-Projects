@@ -1,6 +1,6 @@
 
 function addition () {
-    let x = parseInt(document.getElementById("secondNumber").value);
+    let x = parseInt(document.getElementById("firstNumber").value);
     let y = parseInt(document.getElementById("secondNumber").value);
     let output = " " ;
     output += (x + y);
@@ -8,7 +8,7 @@ function addition () {
     printer.innerHTML = "The Addition of " + x + " and " + y + " is : " + output ;
 }
 function substraction () {
-    let x = parseInt(document.getElementById("secondNumber").value);
+    let x = parseInt(document.getElementById("firstNumber").value);
     let y = parseInt(document.getElementById("secondNumber").value);
     let output = " " ;
     output += (x - y);
@@ -16,7 +16,7 @@ function substraction () {
     printer.innerHTML = "The Substraction of " + x + " and " + y + " is : " + output ;
 }
 function multiplication () {
-    let x = parseInt(document.getElementById("secondNumber").value);
+    let x = parseInt(document.getElementById("firstNumber").value);
     let y = parseInt(document.getElementById("secondNumber").value);
     let output = " " ;
     output += (x * y);
