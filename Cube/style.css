@@ -1,0 +1,20 @@
+#container {
+    background-color: red;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 5px;
+    border-radius: 25px;
+    justify-content: center;
+    align-items: center;
+}
+#container div {
+    height: 48px;
+    width: 32%;
+}
+#container .first {
+    background-color: black;
+    border-radius: 29px;
+}
