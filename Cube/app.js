@@ -47,24 +47,3 @@
 // function printName() {
 // }
 
-console.log(a);
-
-var a = "a";
-var a = "a";
-
-let b = "a";
-let b = "a";
-
-const c = "b";
-const c = "b";
-var a = "a";
-a = "a";
-
-let b = "a";
-b = "a";
-
-const c = "b";
-c = "b";
-
-
-console.log(typeof {});
