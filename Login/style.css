@@ -1,0 +1,53 @@
+body {
+    background-image: url(https://static.vecteezy.com/system/resources/thumbnails/001/882/531/small_2x/dark-blue-technology-background-free-vector.jpg);
+    font-family: poppins;
+}
+h1 {
+    color: #fff;
+    text-shadow: 4px 4px 8px #000;
+    text-align: center;
+}
+input {
+    background-color: #153785;
+    border: 1px solid #fff;
+    height: 25px;
+    width: 250px ;
+    border-radius: 10px;
+    font-size: 10px;
+    font-family: poppins;
+    color: #fff;
+}
+button {
+    width: 250px;
+    height: 30px;
+    background-color: #000;
+    color: #fff;
+    border-radius: 10px;
+    font-family: poppins;
+    box-shadow: 0 0 10px transparent;
+    cursor: pointer;
+
+}
+button:hover {
+    box-shadow: 0 0 10px 5px bisque, 0 0 30px 10px #3333ff;
+
+}
+input:focus {
+    border: 1px solid #fff;
+}
+.container{
+    display: flex;
+    gap: 18px;
+    flex-direction: column;
+    width: 40%;
+    align-items: center;
+    margin: auto;
+}
+.container2 {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+} 
+p {
+    color: #fff;
+}

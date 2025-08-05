@@ -3,19 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
 </head>
 <body>
-    <center>
 
     <h1>Login</h1>
-    <input type="email" id="formField1" placeholder="Enter your Email"> <br> <br>
-    <input type="password" id="formField2" placeholder="Enter your password"> <br> <br>
-    <button onclick="newUser()">New User</button>
-    <button onclick="oldUser()">Old User</button>
+    <div class="container">
+    <input type="text" id="formField1" placeholder="Enter User Name "> 
+    <input type="email" id="formField2" placeholder="Enter your Email"> 
+    <input type="password" id="formField3" placeholder="Enter your password">
+    <button onclick="signIn()">Sign In</button> <br>
+    <p></p>
+    </div>
+    <div class="container2">
+    <p>Already Have An Account ?</p>
+    <a href="signup.html"><button onclick="signUp()">Sign Up</button></a>
+</div>
     <h2 id="output"></h2>
    
-    </center>
 
     <!-- <h2>Keep Notes</h2>
 
