@@ -53,4 +53,67 @@
 
 
 
+let userNames = [] ;
+let userEmails = [] ;
+let userPasswords = [] ;
+let printer = document.getElementById("print"); 
 
+function signIn () {
+    let nameTaker = takingUsername () ;
+    let emailTaker = takingUseremail () ;
+    let passwordTaker = takingUserPassword () ;
+
+    if(userNames.includes(nameTaker)) {
+        printer.innerHTML = "This Username Is Already Been Taken !" ;
+        return ;
+    } else if(userEmails.includes(emailTaker)) {
+        printer.innerHTML = "This Email Is Already Been Registered !" ;
+        return ;
+    } 
+
+    let userInfo = {
+        userName : nameTaker ,
+        userEmail : emailTaker ,
+        userPassword : passwordTaker,
+    }
+
+    userNames.push(userInfo.userName);
+    userEmails.push(userInfo.userEmail);
+    userPasswords.push(userInfo.userPassword);
+
+    if(userInfo.userName && userInfo.userEmail && userInfo.userPassword) {
+        printer.innerHTML = "Login Successfully !" ;
+    } else {
+        printer.innerHTML = "Please Fill The Above All Requirements !";
+    }
+    console.log(userInfo)
+}
+console.log(userNames);
+console.log(userEmails);
+console.log(userPasswords);
+
+function takingUsername () {
+    let nameOfUser = document.getElementById("formField1").value ;
+    return nameOfUser ;
+}
+
+function takingUseremail () {
+    let emailOfUser = document.getElementById("formField2").value ;
+    return emailOfUser ;
+}
+
+function takingUserPassword () {
+    let passwordOfUser = document.getElementById("formField3").value ;
+    return passwordOfUser ;
+}
+
+function signUp () {
+    let oldNameTaker = takingUsername () ;
+    let OldEmailTaker = takingUseremail () ;
+    let OldPasswordTaker = takingUserPassword () ;
+    let matchedUsername = userNames.includes(oldNameTaker) ;
+    if(matchedUsername !== -1 && userEmails[matchedUsername] !== OldEmailTaker ) {
+        printer.innerHTML = "User Doesn't Exist !" ;
+    }
+
+}
