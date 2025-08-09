@@ -107,13 +107,20 @@ function takingUserPassword () {
     return passwordOfUser ;
 }
 
+let print = document.getElementById("priint");
+
 function signUp () {
     let oldNameTaker = takingUsername () ;
     let OldEmailTaker = takingUseremail () ;
     let OldPasswordTaker = takingUserPassword () ;
-    let matchedUsername = userNames.includes(oldNameTaker) ;
-    if(matchedUsername !== -1 && userEmails[matchedUsername] !== OldEmailTaker ) {
-        printer.innerHTML = "User Doesn't Exist !" ;
+    let matchedUsername = userNames.indexOf(oldNameTaker) ;
+        
+    if(matchedUsername !== -1) {
+        print.innerHTML = "User Doesn't Exist !" ;
+    } else if(userEmails[matchedUsername] !== OldEmailTaker) {
+        print.innerHTML = "Your Email Is Wrong !" ;
+    } else if(userPasswords[matchedUsername] !== OldPasswordTaker){
+        print.innerHTML = "Wrong Password !" ;
     }
 
 }
