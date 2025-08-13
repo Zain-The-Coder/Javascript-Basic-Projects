@@ -53,74 +53,192 @@
 
 
 
-let userNames = [] ;
-let userEmails = [] ;
-let userPasswords = [] ;
-let printer = document.getElementById("print"); 
+// let userNames = JSON.parse(localStorage.getItem("NamesOfUser")) || [] ;
+// let userEmails = JSON.parse(localStorage.getItem("EmailsOfUser")) || [];
+// let userPasswords = JSON.parse(localStorage.getItem("PasswordsOfUser")) || [];
+// let printer = document.getElementById("print"); 
 
-function signIn () {
-    let nameTaker = takingUsername () ;
-    let emailTaker = takingUseremail () ;
-    let passwordTaker = takingUserPassword () ;
+// function signIn () {
+//     let nameTaker = takingUsername () ;
+//     let emailTaker = takingUseremail () ;
+//     let passwordTaker = takingUserPassword () ;
+    
+//     if(userNames.includes(nameTaker)) {
+//         printer.innerHTML = "This Username Is Already Been Taken !" ;
+//         return ;
+//     } else if(userEmails.includes(emailTaker)) {
+//         printer.innerHTML = "This Email Is Already Been Registered !" ;
+//         return ;
+//     } 
+//     let atCount = 0;
+//     for(let i = 0; i < emailTaker.length; i++) {
+//         if(emailTaker[i] === "@") {
+//             atCount++ ;
+//         }
+//     }
+//     if(atCount !== 1) {
+//         printer.innerHTML = "Use Valid Email !" ;
+//         return ;
+//     }
+//     let userInfo = {
+//         userName : nameTaker ,
+//         userEmail : emailTaker ,
+//         userPassword : passwordTaker,
+//     }
 
-    if(userNames.includes(nameTaker)) {
-        printer.innerHTML = "This Username Is Already Been Taken !" ;
-        return ;
-    } else if(userEmails.includes(emailTaker)) {
-        printer.innerHTML = "This Email Is Already Been Registered !" ;
-        return ;
-    } 
+//     userNames.push(userInfo.userName);
+//     userEmails.push(userInfo.userEmail);
+//     userPasswords.push(userInfo.userPassword);
 
-    let userInfo = {
-        userName : nameTaker ,
-        userEmail : emailTaker ,
-        userPassword : passwordTaker,
-    }
+//     if(userInfo.userName && userInfo.userEmail && userInfo.userPassword) {
+//         printer.innerHTML = "Login Successfully !" ;
+//     } else {
+//         printer.innerHTML = "Please Fill The Above All Requirements !";
+//     }
+//     localStorage.setItem("NamesOfUser" , JSON.stringify(userNames));
+//     localStorage.setItem("EmailsOfUser" , JSON.stringify(userEmails));
+//     localStorage.setItem("PasswordsOfUser" , JSON.stringify(userPasswords));
 
-    userNames.push(userInfo.userName);
-    userEmails.push(userInfo.userEmail);
-    userPasswords.push(userInfo.userPassword);
+//     console.log(userInfo)
+//     document.getElementById("formField1").value = "" ;
+//     document.getElementById("formField2").value = "" ;
+//     document.getElementById("formField3").value = "" ;
+// }
+// console.log(userNames);
+// console.log(userEmails);
+// console.log(userPasswords);
 
-    if(userInfo.userName && userInfo.userEmail && userInfo.userPassword) {
-        printer.innerHTML = "Login Successfully !" ;
-    } else {
-        printer.innerHTML = "Please Fill The Above All Requirements !";
-    }
-    console.log(userInfo)
-}
-console.log(userNames);
-console.log(userEmails);
-console.log(userPasswords);
+// function takingUsername () {
+//     let nameOfUser = document.getElementById("formField1").value ;
+//     return nameOfUser ;
+// }
 
-function takingUsername () {
-    let nameOfUser = document.getElementById("formField1").value ;
-    return nameOfUser ;
-}
+// function takingUseremail () {
+//     let emailOfUser = document.getElementById("formField2").value ;
+//     return emailOfUser ;
+// }
 
-function takingUseremail () {
-    let emailOfUser = document.getElementById("formField2").value ;
-    return emailOfUser ;
-}
+// function takingUserPassword () {
+//     let passwordOfUser = document.getElementById("formField3").value ;
+//     return passwordOfUser ;
+// }
 
-function takingUserPassword () {
-    let passwordOfUser = document.getElementById("formField3").value ;
-    return passwordOfUser ;
-}
+// let print = document.getElementById("priint");
 
+// function signUp () {
+//     let oldNameTaker = takingUsername () ;
+//     let OldEmailTaker = takingUseremail () ;
+//     let OldPasswordTaker = takingUserPassword () ;
+//     let matchedUsername = userNames.indexOf(oldNameTaker) ;
+        
+//     if(matchedUsername === -1) {
+//         print.innerHTML = "User Doesn't Exist !" ;
+//     } else if(userEmails[matchedUsername] !== OldEmailTaker) {
+//         print.innerHTML = "Your Email Is Wrong !" ;
+//     } else if(userPasswords[matchedUsername] !== OldPasswordTaker){
+//         print.innerHTML = "Wrong Password !" ;
+//     } else {
+//         print.innerHTML = "Welcome " + oldNameTaker + " Login Successfully !" ;
+//     }
+
+// }
+
+let userNames = JSON.parse(localStorage.getItem("userKnames")) || [] ;
+let userEmails = JSON.parse(localStorage.getItem("userKemails")) || [] ;
+let userPasswords = JSON.parse(localStorage.getItem("userKpasswords")) || [];
+let printer = document.getElementById("print");
 let print = document.getElementById("priint");
 
-function signUp () {
-    let oldNameTaker = takingUsername () ;
-    let OldEmailTaker = takingUseremail () ;
-    let OldPasswordTaker = takingUserPassword () ;
-    let matchedUsername = userNames.indexOf(oldNameTaker) ;
-        
-    if(matchedUsername !== -1) {
-        print.innerHTML = "User Doesn't Exist !" ;
-    } else if(userEmails[matchedUsername] !== OldEmailTaker) {
-        print.innerHTML = "Your Email Is Wrong !" ;
-    } else if(userPasswords[matchedUsername] !== OldPasswordTaker){
-        print.innerHTML = "Wrong Password !" ;
+function signIn () {
+let nameTaker = takingName();
+let emailTaker = takingemail();
+let passwordTaker = takingpassword();
+
+let atCount = 0;
+let error = false ;
+    for(let i = 0; i < emailTaker.length; i++) {
+        if(emailTaker[i] === "@") {
+            atCount++ ;
+        }
+    } 
+    for(let i = 0 ; i < emailTaker.length; i++) {
+        if (emailTaker[i] === " " ){
+                error = true ;
+            }
+        }
+    
+    if(!nameTaker || !emailTaker || !passwordTaker) {
+        printer.innerHTML = "Please Fill The Above All Requirements !" ;
+        return ;
+    } else {
+        printer.innerHTML = "Login Successfully !" ;
+    }
+    let userInfo = {
+        Name : nameTaker ,
+        Email : emailTaker , 
+        Password : passwordTaker,
     }
 
+    if(atCount !== 1) {
+        printer.innerHTML = "Please Use Valid Email !" ;
+        return ;
+    } 
+    if(error === true) {
+        printer.innerHTML = "Please Remove Spaces From Email !" ;
+        return ;
+    }
+
+    if(userNames.includes(userInfo.Name)) {
+        printer.innerHTML = "The Username Is Already Been Taken !" ;
+        return ;
+    } 
+    if(userEmails.includes(userInfo.Email)) {
+        printer.innerHTML = "This Email Is Already Been Registered !" ;
+        return ;
+    }
+
+localStorage.setItem("userKnames " , JSON.stringify(userNames));
+localStorage.setItem("userKemails" , JSON.stringify(userEmails));
+localStorage.setItem("userKpasswords" , JSON.stringify(userPasswords));
+
+document.getElementById("formField1").value = "" ;
+document.getElementById("formField2").value = "" ;
+document.getElementById("formField3").value = "" ;
+
+userNames.push(userInfo.Name);
+userEmails.push(userInfo.Email);
+userPasswords.push(userInfo.Password);
+console.log(userEmails , userNames , userPasswords);
+
+
+}
+
+function takingName () {
+    let nameOfUser = document.getElementById("formField1").value;
+    return nameOfUser;
+}
+function takingemail () {
+    emailOfUser = document.getElementById("formField2").value ;
+    return emailOfUser;
+}
+function takingpassword () {
+    passwordOfUser = document.getElementById("formField3").value;
+    return passwordOfUser;
+}
+
+function signUp() {
+    let oldUserName = takingName() ;
+    let oldUserEmail = takingemail() ;
+    let oldUserPassword = takingpassword() ;
+    let matchedUsername = userNames.indexOf(oldUserName);
+    if(matchedUsername === -1) {
+        print.innerHTML = "User Doesn't Exist ! <br> You Should Check User Name." ;
+        return ;
+    }
+    if(userEmails[matchedUsername] !== oldUserEmail) {
+        print.innerHTML = "Incorrect Email !" ;
+    }
+    if(userPasswords[matchedUsername] !== oldUserPassword) {
+        print.innerHTML = "Incorrect Password !" ;
+    }
 }
