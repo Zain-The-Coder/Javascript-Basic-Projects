@@ -3,9 +3,9 @@
 
 
 let printer = document.getElementById("print");
-let userName = [] ;
-let userEmail = [] ;
-let userPassword = [] ;
+let userName = JSON.parse(localStorage.getItem("theUserName")) || [] ;
+let userEmail = JSON.parse(localStorage.getItem("theUserEmail")) || [] ;
+let userPassword = JSON.parse(localStorage.getItem("theUserPassword")) || [] ;
 
    function signIn () {
 let nameTaker = nameChecker();

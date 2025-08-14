@@ -2,7 +2,7 @@ body {
     background-image: url(https://static.vecteezy.com/system/resources/thumbnails/001/882/531/small_2x/dark-blue-technology-background-free-vector.jpg);
     font-family: poppins;
 }
-h1 {
+h1 , h2{
     color: #fff;
     text-shadow: 4px 4px 8px #000;
     text-align: center;
@@ -51,9 +51,15 @@ input:focus {
 p {
     color: #fff;
 }
-#print {
+#print , #priint{
     color: #fff;
     font-weight: 900;
     margin-top: -30px;
     text-shadow: 2px 2px 4px #000;
+    width: 200%;
+    margin-left: 0px;
+    text-align: center;
+}
+#priint {
+    margin-top: 10px;
 }
