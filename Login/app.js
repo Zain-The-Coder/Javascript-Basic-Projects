@@ -6,6 +6,7 @@
 // let userEmails = [ ] ;
 // let userPasswords = [ ] ;
 
+
 // function newUser () {
 
 //     let emailOfUser = takingEmail () ;
@@ -143,16 +144,118 @@
 
 // }
 
-let userNames = JSON.parse(localStorage.getItem("userKnames")) || [] ;
-let userEmails = JSON.parse(localStorage.getItem("userKemails")) || [] ;
-let userPasswords = JSON.parse(localStorage.getItem("userKpasswords")) || [];
-let printer = document.getElementById("print");
-let print = document.getElementById("priint");
+// let userNames = JSON.parse(localStorage.getItem("userKnames")) || [] ;
+// let userEmails = JSON.parse(localStorage.getItem("userKemails")) || [] ;
+// let userPasswords = JSON.parse(localStorage.getItem("userKpasswords")) || [];
+// let printer = document.getElementById("print");
+// let print = document.getElementById("priint");
 
-function signIn () {
-let nameTaker = takingName();
-let emailTaker = takingemail();
-let passwordTaker = takingpassword();
+// function signIn () {
+// let nameTaker = takingName();
+// let emailTaker = takingemail();
+// let passwordTaker = takingpassword();
+
+// let atCount = 0;
+// let error = false ;
+//     for(let i = 0; i < emailTaker.length; i++) {
+//         if(emailTaker[i] === "@") {
+//             atCount++ ;
+//         }
+//     } 
+//     for(let i = 0 ; i < emailTaker.length; i++) {
+//         if (emailTaker[i] === " " ){
+//                 error = true ;
+//             }
+//         }
+    
+//     if(!nameTaker || !emailTaker || !passwordTaker) {
+//         printer.innerHTML = "Please Fill The Above All Requirements !" ;
+//         return ;
+//     } else {
+//         printer.innerHTML = "Login Successfully !" ;
+//     }
+//     let userInfo = {
+//         Name : nameTaker ,
+//         Email : emailTaker , 
+//         Password : passwordTaker,
+//     }
+
+//     if(atCount !== 1) {
+//         printer.innerHTML = "Please Use Valid Email !" ;
+//         return ;
+//     } 
+//     if(error === true) {
+//         printer.innerHTML = "Please Remove Spaces From Email !" ;
+//         return ;
+//     }
+
+//     if(userNames.includes(userInfo.Name)) {
+//         printer.innerHTML = "The Username Is Already Been Taken !" ;
+//         return ;
+//     } 
+//     if(userEmails.includes(userInfo.Email)) {
+//         printer.innerHTML = "This Email Is Already Been Registered !" ;
+//         return ;
+//     }
+
+// localStorage.setItem("userKnames " , JSON.stringify(userNames));
+// localStorage.setItem("userKemails" , JSON.stringify(userEmails));
+// localStorage.setItem("userKpasswords" , JSON.stringify(userPasswords));
+
+// document.getElementById("formField1").value = "" ;
+// document.getElementById("formField2").value = "" ;
+// document.getElementById("formField3").value = "" ;
+
+// userNames.push(userInfo.Name);
+// userEmails.push(userInfo.Email);
+// userPasswords.push(userInfo.Password);
+// console.log(userEmails , userNames , userPasswords);
+
+
+// }
+
+// function takingName () {
+//     let nameOfUser = document.getElementById("formField1").value;
+//     return nameOfUser;
+// }
+// function takingemail () {
+//     emailOfUser = document.getElementById("formField2").value ;
+//     return emailOfUser;
+// }
+// function takingpassword () {
+//     passwordOfUser = document.getElementById("formField3").value;
+//     return passwordOfUser;
+// }
+
+// function signUp() {
+//     let oldUserName = takingName() ;
+//     let oldUserEmail = takingemail() ;
+//     let oldUserPassword = takingpassword() ;
+//     let matchedUsername = userNames.indexOf(oldUserName);
+//     if(matchedUsername === -1) {
+//         print.innerHTML = "User Doesn't Exist ! <br> You Should Check User Name." ;
+//         return ;
+//     }
+//     if(userEmails[matchedUsername] !== oldUserEmail) {
+//         print.innerHTML = "Incorrect Email !" ;
+//     }
+//     if(userPasswords[matchedUsername] !== oldUserPassword) {
+//         print.innerHTML = "Incorrect Password !" ;
+//     }
+// }
+
+
+
+
+let printer = document.getElementById("print");
+let userName = [] ;
+let userEmail = [] ;
+let userPassword = [] ;
+
+   function signIn () {
+let nameTaker = nameChecker();
+let emailTaker = emailChecker();
+let passwordTaker = passwordChecker();
 
 let atCount = 0;
 let error = false ;
@@ -178,6 +281,19 @@ let error = false ;
         Email : emailTaker , 
         Password : passwordTaker,
     }
+    let x = localStorage.getItem("theUserName") ;
+    let y = localStorage.getItem("theUserEmail") ;
+    let z = localStorage.getItem("theUserPassword") ;
+
+    if(x) {
+        userName.push(JSON.parse(x)) ;
+    } 
+    if(y) {
+        userEmail.push(JSON.parse(y)) ;
+    } 
+    if(z) {
+        userPassword.push(JSON.parse(z));
+    }
 
     if(atCount !== 1) {
         printer.innerHTML = "Please Use Valid Email !" ;
@@ -186,59 +302,47 @@ let error = false ;
     if(error === true) {
         printer.innerHTML = "Please Remove Spaces From Email !" ;
         return ;
-    }
+    } 
 
-    if(userNames.includes(userInfo.Name)) {
+
+    if(userName.includes(userInfo.Name)) {
         printer.innerHTML = "The Username Is Already Been Taken !" ;
         return ;
     } 
-    if(userEmails.includes(userInfo.Email)) {
+    if(userEmail.includes(userInfo.Email)) {
         printer.innerHTML = "This Email Is Already Been Registered !" ;
         return ;
     }
+    userName.push(nameTaker);
+    userEmail.push(emailTaker) ;
+    userPassword.push(passwordTaker);
 
-localStorage.setItem("userKnames " , JSON.stringify(userNames));
-localStorage.setItem("userKemails" , JSON.stringify(userEmails));
-localStorage.setItem("userKpasswords" , JSON.stringify(userPasswords));
+    localStorage.setItem("theUserName" , JSON.stringify(userName)) ;
+    localStorage.setItem("theUserEmail" , JSON.stringify(userEmail)) ;
+    localStorage.setItem("theUserPassword " , JSON.stringify(userPassword)) ;
 
-document.getElementById("formField1").value = "" ;
-document.getElementById("formField2").value = "" ;
-document.getElementById("formField3").value = "" ;
-
-userNames.push(userInfo.Name);
-userEmails.push(userInfo.Email);
-userPasswords.push(userInfo.Password);
-console.log(userEmails , userNames , userPasswords);
-
-
+    document.getElementById("formField1").value = "" ;
+    document.getElementById("formField2").value = "" ;
+    document.getElementById("formField3").value = "" ;
+    console.log(userName) ; console.log(userEmail) ; console.log(userPassword); 
 }
 
-function takingName () {
-    let nameOfUser = document.getElementById("formField1").value;
-    return nameOfUser;
+function nameChecker () {
+    let x = document.getElementById("formField1").value ;
+    return x;
 }
-function takingemail () {
-    emailOfUser = document.getElementById("formField2").value ;
-    return emailOfUser;
+function emailChecker () {
+    let y = document.getElementById("formField2").value ;
+    return y;    
 }
-function takingpassword () {
-    passwordOfUser = document.getElementById("formField3").value;
-    return passwordOfUser;
+function passwordChecker () {
+    let z = document.getElementById("formField3").value ;
+    return z;
 }
 
-function signUp() {
-    let oldUserName = takingName() ;
-    let oldUserEmail = takingemail() ;
-    let oldUserPassword = takingpassword() ;
-    let matchedUsername = userNames.indexOf(oldUserName);
-    if(matchedUsername === -1) {
-        print.innerHTML = "User Doesn't Exist ! <br> You Should Check User Name." ;
-        return ;
-    }
-    if(userEmails[matchedUsername] !== oldUserEmail) {
-        print.innerHTML = "Incorrect Email !" ;
-    }
-    if(userPasswords[matchedUsername] !== oldUserPassword) {
-        print.innerHTML = "Incorrect Password !" ;
-    }
+let printer2 = document.getElementById("priint");
+
+function signUp () {
+    
 }
+function 
