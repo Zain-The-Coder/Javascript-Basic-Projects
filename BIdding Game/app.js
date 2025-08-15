@@ -9,7 +9,6 @@ function printer () {
     let IsOutputMatched = matched(userBidNumber , bidNumber);
     output (userBidAmount , IsOutputMatched);
     console.log(bidNumber);
-
 }
 function generateRandom () {
     let randomNumber = Math.ceil(Math.random() * 5);
@@ -24,7 +23,7 @@ function matched (userBidNumber , bidNumber) {
 }
 function output (userBidAmount , IsOutputMatched) {
     if(IsOutputMatched === true) {
-        heading.innerHTML = (heading.innerHTML + userBidAmount);
+        heading.innerHTML = (heading.innerHTML + (Number(userBidAmount))) ;
         paragraph.innerHTML = "Congratulations ! you win " + userBidAmount + " rupees";
     } else {
         heading.innerHTML = (heading.innerHTML - userBidAmount);
