@@ -1,4 +1,4 @@
-
+//simple calculator
 function addition () {
     let x = parseInt(document.getElementById("firstNumber").value);
     let y = parseInt(document.getElementById("secondNumber").value);
