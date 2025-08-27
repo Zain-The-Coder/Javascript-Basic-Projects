@@ -5,16 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
-    <style></style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Playing Card</h1>
+    <h1>Find the King 👑</h1>
     <div>
-        <img id="firstImage" src="./Images/back-of-card.png" alt="back-of-card">
-        <img  id="secondImage" src="./Images/back-of-card.png" alt="back-of-card2">
-        <img id="thirdImage" src="./Images/back-of-card.png" alt="back-of-card3">
+        <img onclick="changer(1)" id="firstImage" src="./Images/back-of-card.png" alt="back-of-card">
+        <img onclick="changer(2)"  id="secondImage" src="./Images/back-of-card.png" alt="back-of-card2">
+        <img onclick="changer(3)" id="thirdImage" src="./Images/back-of-card.png" alt="back-of-card3">
     </div>
-    <button onClick="changer()">Change</button>
+    <p id="message"></p>
+    <br> <br>
+    <div class="div">
+        <button onclick="reset()">Reset Game?</button>
+        <a href="home.html"><button>End Game .</button></a>
+    </div>
+
 
     <script src="app.js"></script>
     
