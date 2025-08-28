@@ -1,3 +1,4 @@
+
 body {
     font-family: poppins;
     text-align: center;
@@ -20,10 +21,8 @@ div {
 
 img {
     height: 300px;
-    border: 1px solid black;
     border-radius: 20px;
     cursor: pointer;
-    perspective: 1000px;
 }
 
 p {
@@ -55,4 +54,25 @@ button:hover {
     color: white;
     box-shadow: 0 0 10px 5px black, 0 0 30px 10px #3333ff;
 
+}
+
+@media (max-width:400px) {
+    h1 {
+        font-size: 20px;
+    }
+    img {
+        height: 120px;
+        width: 170px;
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+    p {
+    font-size: 17px;
+    font-weight: bold;
+    background-color: #000;
+    display: inline-block;
+    justify-content: center;
+    border-radius: 20px;
+    padding: 17px;
+}
 }
