@@ -1,12 +1,16 @@
-body {
-    font-family: poppins;
-    background-image: url(./Images/backgroundd.jpg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    background-attachment: fixed;
+
+@keyframes trans {
+    0%{opacity: 1;} 50%{opacity: 0;} 100%{opacity: 1;}
 }
 
+body {
+    margin: 0%;
+    font-family: poppins;
+    background: linear-gradient(to right, #121212, #0d1117, #101820);       
+}
+a {
+    text-decoration: none;
+}
 h1 {
     font-size: 42px;
     color: white;
@@ -27,6 +31,8 @@ img {
     cursor: pointer;
     perspective: 1000px;
     width: 200px;
+    transform-style: preserve-3d;
+    transform: rotateY(180);
 }
 
 button{
@@ -50,7 +56,14 @@ button:hover {
     box-shadow: 0 0 10px 5px black, 0 0 30px 10px #3333ff;
 
 }
-
+.header {
+    background-color: black;
+    padding: 2px;
+}
+.header h2 {
+    color: #fff;
+    margin-left: 900px;
+}
 p {
     font-family: poppins;
     font-weight: 560;
@@ -73,6 +86,18 @@ a {
     display: flex;
     justify-content: center;
 }
+#animate-name {
+    position: relative;
+    animation: trans 3s infinite;
+    color: aquamarine;
+    font-size: 22px;
+    font-family: poppins;
+    margin-left: 1000px;
+    margin-top: 40px;
+}
+
+
+
 @media (max-width:700px) {
     h1{
       font-size: 32px;
