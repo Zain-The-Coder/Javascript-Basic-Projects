@@ -1,4 +1,4 @@
-
+    
 
 
 
@@ -20,7 +20,7 @@ let error = false ;
         }
     } 
     for(let i = 0 ; i < emailTaker.length; i++) {
-        if (emailTaker[i] === " " ){
+        if (emailTaker[i] === " " ){    
                 error = true ;
             }
         }

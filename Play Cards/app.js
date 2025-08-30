@@ -1,33 +1,4 @@
 
-
-const newSubmitter = () => {
-    let values = valueChecker() ;
-    localStorage.setItem("userNames" , values[0]) ;
-    localStorage.setItem("userCodes" , values[1]) ;
-}
-
-function valueChecker () {
-    let firstField = document.getElementById("name-sec").value ;
-    let secondField = document.getElementById("code-sec").value ;
-    return [firstField , secondField] ;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 let firstImage = document.getElementById("firstImage");
 let secondImage = document.getElementById("secondImage");
 let thirdImage = document.getElementById("thirdImage");
