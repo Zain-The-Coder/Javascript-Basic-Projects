@@ -1,0 +1,98 @@
+body {
+    font-family: poppins;
+    background: linear-gradient(to right, #121212, #0d1117, #101820);       
+}
+
+ @keyframes bounce{
+    0% {
+      transform: translateY(-45px);
+      animation-timing-function: ease-in;
+      opacity: 1;
+    }
+    24% {
+      opacity: 1;
+    }
+    40% {
+      transform: translateY(-24px);
+      animation-timing-function: ease-in;
+    }
+    65% {
+      transform: translateY(-12px);
+      animation-timing-function: ease-in;
+    }
+    82% {
+      transform: translateY(-6px);
+      animation-timing-function: ease-in;
+    }
+    93% {
+      transform: translateY(-4px);
+      animation-timing-function: ease-in;
+    }
+    25%,
+    55%,
+    75%,
+    87% {
+      transform: translateY(0px);
+      animation-timing-function: ease-out;
+    }
+    100% {
+      transform: translateY(0px);
+      animation-timing-function: ease-out;
+      opacity: 1;
+    }
+  }
+
+h1 {
+    text-transform: uppercase; 
+    font-weight: bolder;
+    color: antiquewhite;
+    font-family: poppins;
+    margin-top: 40px;
+    animation: bounce 1s ease;
+    text-align: center;
+}
+
+#main-div {
+    background-color: #2A2A2A;
+    width: 77%;
+    border-radius: 40px;
+    margin: auto;
+    padding-top: 3px;
+    padding-bottom: 7px;
+    text-align: center;
+}
+h2 {
+    color: #F5F5F5;
+    font-size: 20px;
+    text-transform: capitalize;
+}
+button {
+    font-family: poppins;
+    padding: 5px;
+    padding-right: 45px;
+    padding-left: 45px;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 20px;
+    background-color: #101820;
+    color: violet;
+}
+
+button:hover {
+    background-color: #1018;
+    color: blue;
+    cursor: pointer;
+}
+input {
+    background-color: #121212;
+    width: 50%;
+    border-radius: 20px;
+    font-family: poppins;
+    font-size: 20px;
+    text-transform: capitalize;
+    color: white;
+}
+#userInput:focus {
+     border-color: #4a90e2;
+    box-shadow: 3px 3px 10px #4a90e2;
+}
