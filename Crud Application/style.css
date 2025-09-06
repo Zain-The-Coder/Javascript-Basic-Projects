@@ -19,6 +19,13 @@ body {
   }
 }
 
+@keyframes hello {
+  0% {opacity: 1;} 
+  100%{opacity: 0;}
+}
+#message {
+  animation: hello 2s ease;
+}
  @keyframes bounce{
     0% {
       transform: translateY(-45px);

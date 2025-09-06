@@ -2,17 +2,30 @@ let userInput = document.getElementById("userInput");
 let message = document.getElementById("message");
 let changerdiv = document.getElementById("curdDiv");
 let mainButton = document.getElementById("button");
+let taskBeingEdited = null ;
+
 
 function addItem () {
     let shortDiv = document.createElement("div");
     changerdiv.appendChild(shortDiv);
-if(userInput.value === "") {
+
+    if (taskBeingEdited) {
+        taskBeingEdited.textContent = userInput.value ;
+        message.style.color = "yellow" ;
+        message.textContent = "Task Edited !" ;
+        userInput.value = "" ;
+        mainButton.textContent = "Add Task" ;
+        taskBeingEdited = null ;
+        return ;
+    } 
+    else if(userInput.value === "") {
     message.innerHTML = "Input Field Is Empty !" ;
     message.style.color = "red" ;
-} else {
+    return ;
+    } 
+    else {
     message.innerHTML = "Task Is Added !" ;
-    message.style.color = "green" ;
-    
+    message.style.color = "green" ;    
     let taskDiv = document.createElement("div");
 
     let taskHead = document.createElement("h2");
@@ -23,8 +36,7 @@ if(userInput.value === "") {
     
     let divLi = document.createElement("li");
     divLi.style.color = "bisque" ;
-    let liTxt = document.createTextNode(userInput.value);
-    divLi.appendChild(liTxt) ;
+    divLi.textContent = userInput.value ;
     divLi.style.marginTop = "-15px" ;
     divLi.style.marginBottom = "5px"
 
@@ -105,18 +117,14 @@ if(userInput.value === "") {
     })
 
     editButton.addEventListener("click" , function () {
-        userInput.value = liTxt.nodeValue ;
+        userInput.value = divLi.textContent ;
         message.innerHTML = "Your Task Is Being Editing..." ;
         message.style.color = "white" ;
-        mainButton.textContent = "Save Task" ;
-        liTxt.textContent = userInput.value ;
-
+        mainButton.textContent = "Edit Task" ;
+        taskBeingEdited = divLi ;
     })
-
-    userInput.value = "" ;
-    
+    userInput.value = "" ; 
 }
-
 }
 
 const removal = (targetEl) => {
