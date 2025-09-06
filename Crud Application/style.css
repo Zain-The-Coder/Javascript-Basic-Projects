@@ -3,6 +3,22 @@ body {
     background: linear-gradient(to right, #121212, #0d1117, #101820);       
 }
 
+@keyframes come {
+  0% {
+    opacity: 0;
+  } 20% {
+    opacity: 2;
+  } 40% {
+    opacity: 4;
+  } 60% {
+    opacity: 6;
+  } 80% {
+    opacity: 8;
+  } 100% {
+    opacity: 1;
+  }
+}
+
  @keyframes bounce{
     0% {
       transform: translateY(-45px);
@@ -66,7 +82,7 @@ h2 {
     font-size: 20px;
     text-transform: capitalize;
 }
-button {
+#button {
     font-family: poppins;
     padding: 5px;
     padding-right: 45px;
@@ -78,7 +94,7 @@ button {
     color: violet;
 }
 
-button:hover {
+#button:hover {
     background-color: #1018;
     color: blue;
     cursor: pointer;
