@@ -86,6 +86,7 @@ const reset = () => {
     firstImage.src = "./Images/back-of-card.png" ;
     secondImage.src = "./Images/back-of-card.png" ;
     thirdImage.src = "./Images/back-of-card.png" ;
+    generateNumber = Math.ceil(Math.random() * 3);
     isFlipped = false ;
     message.innerHTML = ""
 }
