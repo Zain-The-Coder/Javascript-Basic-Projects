@@ -27,7 +27,7 @@ let finalEl = document.getElementById("row5-4");
 
 let firstOperand = "" ;
 let secondOperand = "" ;
-let operator = ""
+let operation = "" ;
 //Flages
 
 let isPercentage = false ;
@@ -54,6 +54,7 @@ row1_3.addEventListener("click" , () => {
     userInput.value += "÷" ;
     isDiv = true ;
     }
+    operation += "/" ;
 });  
 
 row1_4.addEventListener("click" , () => {
@@ -89,9 +90,11 @@ row2_3.addEventListener("click" , () => {
 
 row2_4.addEventListener("click" , () => {
     if(isMulti === false) {
-    userInput.value += "x" ;
-    isMulti = true ;
+        userInput.value += "x" ;
+        isMulti = true ;
     }
+    operation += "x" ;
+
 });
 
 row3_1.addEventListener("click" , () => {
@@ -123,9 +126,10 @@ row3_3.addEventListener("click" , () => {
 
 row3_4.addEventListener("click" , () => {
     if(isSub === false) {
-    userInput.value += "-" ;
-    isSub = true ;
+        userInput.value += "-" ;
+        isSub = true ;
     }
+    operation += "-" ;
 });
 
 row4_1.addEventListener("click" , () => {
@@ -158,13 +162,14 @@ row4_3.addEventListener("click" , () => {
 
 row4_4.addEventListener("click" , () => {
     if(isAdd === false) {
-    userInput.value += "+" ;
-    isAdd = true ;
+        userInput.value += "+" ;
+        isAdd = true ;
     }
+    operation += "+" ;
 })
 
 row5_1.addEventListener("click" , () => {
-
+    
 }) ;
 
 row5_2.addEventListener("click" , () => {
@@ -178,12 +183,12 @@ row5_2.addEventListener("click" , () => {
 
 row5_3.addEventListener("click" , () => {
     if(isDot === false) {
-    userInput.value += "." ;
-    isDot = true ;
+        userInput.value += "." ;
+        isDot = true ;
     }
 })
 
-finalEl.addEventListener("click" , (firstOperand , secondOperand , operator) => {
+finalEl.addEventListener("click" , (firstOperand , secondOperand) => {
     isAdd = false ;
     isSub = false ;
     isMulti = false ;
@@ -191,8 +196,9 @@ finalEl.addEventListener("click" , (firstOperand , secondOperand , operator) => 
     isPercentage = false ;
     
     firstOperand = parseFloat(userInput.value) ;
-    
+    secondOperand = userInput.value.slice() ;
 
     console.log(firstOperand);
-    console.log(operator);
+    console.log(operation);
+    console.log(secondOperand);
 })
