@@ -1,42 +1,75 @@
 * {
     margin: 0px;
     padding: 0px;
-    background-color: #121222;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: poppins;
+}
+body {
+  background: #0d1117;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 h1 {
     color: rgb(129, 115, 34);
     font-size: 50px;
     text-align: center;
+    background-color: #0d1117;
 }
 h1::first-letter {
     font-size: 70px;
     color: bisque;
 }
 table {
-    border: 1px solid white;
     text-align: center;
     font-size: 40px;
     color: white;
     cursor: pointer;
 }
-td {
-    height: 90px;
-    width: 90px;
-    background-color: black;
-    color: orangered;
+button {
+  background: #161b22;
+  color: bisque;
+  font-weight: bolder;
+  font-size: 1.7rem;
+  border: none;
+  padding: 15px;
+  margin: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.2s;
+  height: 70px;
+  width: 84px;
 }
+button:active { 
+    box-shadow: inset 6px 6px 12px #c6d0df, 
+    inset -6px -6px 12px #ffffff; 
+}
+
 #container {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+    background-color: #0d1117;
 }
 input {
+    background: #0d1117;
+    color: #fff;
+    font-weight: bolder ;
+    font-size: 1.5rem;
     text-align: right;
-    width: 27.6%;
-    height: 60px;
-    background-color: #000;
-    color: white;
-    font-size: 45px;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+.special {
+    background-color: orange;
+}
+.special:active {
+    box-shadow: inset 6px 6px 20px #000 , inset -6px -6px 12px #000
 }
