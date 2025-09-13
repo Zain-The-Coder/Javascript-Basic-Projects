@@ -196,9 +196,12 @@ finalEl.addEventListener("click" , (firstOperand , secondOperand) => {
     isPercentage = false ;
     
     firstOperand = parseFloat(userInput.value) ;
-    secondOperand = parseFloat(userInput.value.slice(operation)) ;
-
+    let x = toString(userInput.value);
+    x.slice(operation);
     console.log(firstOperand);
     console.log(operation);
-    console.log(secondOperand);
+    console.log(x);
 })
+
+let uncle = "hello uncle" ;
+console.log(uncle.split(" "));
