@@ -24,7 +24,9 @@ let row5_2 = document.getElementById("row5-2");
 let row5_3 = document.getElementById("row5-3");
 let finalEl = document.getElementById("row5-4");
 
-
+function resetOperator () {
+    isAdd = isSub = isMulti = isDiv = isDot = isPercentage = false ;
+}
 
 //Flages
 
@@ -50,7 +52,6 @@ row1_2.addEventListener("click" , () => {
 row1_3.addEventListener("click" , () => {
     if(isDiv === false) {
     userInput.value += "÷" ;
-    operation += "/" ;
     isDiv = true ;
     }
 });  
@@ -61,35 +62,23 @@ row1_4.addEventListener("click" , () => {
 
 row2_1.addEventListener("click" , () => {
     userInput.value += "7" ;
-    isAdd = false ;
-    isSub = false ;
-    isMulti = false ;
-    isDiv = false ;
-    isPercentage = false ;
+    resetOperator() ;
 });
 
 row2_2.addEventListener("click" , () => {
     userInput.value += "8" ;
-    isAdd = false ;
-    isSub = false ;
-    isMulti = false ;
-    isDiv = false ;
-    isPercentage = false ;
+    resetOperator() ;
 });
 
 row2_3.addEventListener("click" , () => {
     userInput.value += "9" ;
-    isAdd = false ;
-    isSub = false ;
-    isMulti = false ;
-    isDiv = false ;
-    isPercentage = false ;
+    resetOperator() ;
+
 });
 
 row2_4.addEventListener("click" , () => {
     if(isMulti === false) {
         userInput.value += "x" ;
-        operation += "x" ;
         isMulti = true ;
     }
 
@@ -97,81 +86,53 @@ row2_4.addEventListener("click" , () => {
 
 row3_1.addEventListener("click" , () => {
     userInput.value += "4" ;
-    isAdd = false ;
-    isSub = false ;
-    isMulti = false ;
-    isDiv = false ;
-    isPercentage = false ;
+    resetOperator() ;
+
 });
 
 row3_2.addEventListener("click" , () => {
     userInput.value += "5" ;
-    isAdd = false ;
-    isSub = false ;
-    isMulti = false ;
-    isDiv = false ;
-    isPercentage = false ;
+    resetOperator() ;
+
 });
 
 row3_3.addEventListener("click" , () => {
     userInput.value += "6" ;
-    isAdd = false ;
-    isSub = false ;
-    isMulti = false ;
-    isDiv = false ;
-    isPercentage = false ;
+    resetOperator() ;
 });
 
 row3_4.addEventListener("click" , () => {
     if(isSub === false) {
         userInput.value += "-" ;
-        operation += "-" ;
         isSub = true ;
     }
 });
 
 row4_1.addEventListener("click" , () => {
     userInput.value += "1" ;
-    isAdd = false ;
-    isSub = false ;
-    isMulti = false ;
-    isDiv = false ;
-    isPercentage = false ;
+    resetOperator() ;
 });
 
 row4_2.addEventListener("click" , () => {
     userInput.value += "2" ;
-    isAdd = false ;
-    isSub = false ;
-    isMulti = false ;
-    isDiv = false ;
-    isPercentage = false ;
+    resetOperator() ;
 });
 
 
 row4_3.addEventListener("click" , () => {
     userInput.value += "3" ;
-    isAdd = false ;
-    isSub = false ;
-    isMulti = false ;
-    isDiv = false ;
-    isPercentage = false ;
+    resetOperator() ;
 });
 
 row4_4.addEventListener("click" , () => {
     if(isAdd === false) {
         userInput.value += "+" ;
-        operation += "+" ;
         isAdd = true ;
     }
 })
 
 row5_1.addEventListener("click" , () => {
-    isAdd = false ;
-    isSub = false ;
-    isMulti = false ;
-    isDiv = false ;
-    isPercentage = false ;
+    resetOperator() ;
     let x = userInput.value ;
     userInput.value = "" ;
     userInput.value += x * x ;
@@ -181,11 +142,7 @@ row5_1.addEventListener("click" , () => {
 
 row5_2.addEventListener("click" , () => {
     userInput.value += "0" ;
-    isAdd = false ;
-    isSub = false ;
-    isMulti = false ;
-    isDiv = false ;
-    isPercentage = false ;
+    resetOperator() ;
 });
 
 row5_3.addEventListener("click" , () => {
@@ -196,19 +153,16 @@ row5_3.addEventListener("click" , () => {
 })
 
 finalEl.addEventListener("click" , () => {
-    isAdd = false ;
-    isSub = false ;
-    isMulti = false ;
-    isDiv = false ;
-    isPercentage = false ;
-
+    resetOperator() ;
+    
     try {
-        let exp = userInput.value.replace(/x/g , "*").replace(/÷/g , "/");
+        let exp = userInput.value.replace(/x/g , "*").replace(/÷/g , "/").replace(/%/g , "/100");
         let buildFunction = new Function ("return " + exp);
-        userInput.value = buildFunction ;
+        userInput.value = buildFunction() ;
     } catch (e) {
         userInput.value = "Syntax Error !" ;
         console.log(e);
     }
 })
+
 
