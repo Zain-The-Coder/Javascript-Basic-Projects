@@ -25,9 +25,7 @@ let row5_3 = document.getElementById("row5-3");
 let finalEl = document.getElementById("row5-4");
 
 
-let firstOperand = "" ;
-let secondOperand = "" ;
-let operation = "" ;
+
 //Flages
 
 let isPercentage = false ;
@@ -52,9 +50,9 @@ row1_2.addEventListener("click" , () => {
 row1_3.addEventListener("click" , () => {
     if(isDiv === false) {
     userInput.value += "÷" ;
+    operation += "/" ;
     isDiv = true ;
     }
-    operation += "/" ;
 });  
 
 row1_4.addEventListener("click" , () => {
@@ -91,9 +89,9 @@ row2_3.addEventListener("click" , () => {
 row2_4.addEventListener("click" , () => {
     if(isMulti === false) {
         userInput.value += "x" ;
+        operation += "x" ;
         isMulti = true ;
     }
-    operation += "x" ;
 
 });
 
@@ -127,9 +125,9 @@ row3_3.addEventListener("click" , () => {
 row3_4.addEventListener("click" , () => {
     if(isSub === false) {
         userInput.value += "-" ;
+        operation += "-" ;
         isSub = true ;
     }
-    operation += "-" ;
 });
 
 row4_1.addEventListener("click" , () => {
@@ -163,12 +161,21 @@ row4_3.addEventListener("click" , () => {
 row4_4.addEventListener("click" , () => {
     if(isAdd === false) {
         userInput.value += "+" ;
+        operation += "+" ;
         isAdd = true ;
     }
-    operation += "+" ;
 })
 
 row5_1.addEventListener("click" , () => {
+    isAdd = false ;
+    isSub = false ;
+    isMulti = false ;
+    isDiv = false ;
+    isPercentage = false ;
+    let x = userInput.value ;
+    userInput.value = "" ;
+    userInput.value += x * x ;
+
     
 }) ;
 
@@ -188,20 +195,20 @@ row5_3.addEventListener("click" , () => {
     }
 })
 
-finalEl.addEventListener("click" , (firstOperand , secondOperand) => {
+finalEl.addEventListener("click" , () => {
     isAdd = false ;
     isSub = false ;
     isMulti = false ;
     isDiv = false ;
     isPercentage = false ;
-    
-    firstOperand = parseFloat(userInput.value) ;
-    let x = toString(userInput.value);
-    x.slice(operation);
-    console.log(firstOperand);
-    console.log(operation);
-    console.log(x);
+
+    try {
+        let exp = userInput.value.replace(/x/g , "*").replace(/÷/g , "/");
+        let buildFunction = new Function ("return " + exp);
+        userInput.value = buildFunction ;
+    } catch (e) {
+        userInput.value = "Syntax Error !" ;
+        console.log(e);
+    }
 })
 
-let uncle = "hello uncle" ;
-console.log(uncle.split(" "));
