@@ -1,75 +1,126 @@
 * {
-    margin: 0px;
-    padding: 0px;
-    font-family: poppins;
+  margin: 0;
+  padding: 0;
+  font-family: poppins, sans-serif;
 }
+
 body {
   background: #0d1117;
-  font-family: Arial, sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
 }
+
 h1 {
-    color: rgb(129, 115, 34);
-    font-size: 50px;
-    text-align: center;
-    background-color: #0d1117;
+  color: rgb(129, 115, 34);
+  font-size: 3rem;
+  text-align: center;
 }
+
 h1::first-letter {
-    font-size: 70px;
-    color: bisque;
+  font-size: 4rem;
+  color: bisque;
 }
+
+#container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border-radius: 16px;
+  background-color: #0d1117;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+  width: 90%;
+  max-width: 400px;
+}
+
+input {
+  background: #0d1117;
+  color: #fff;
+  font-weight: bolder;
+  font-size: 1.5rem;
+  text-align: right;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
 table {
-    text-align: center;
-    font-size: 40px;
-    color: white;
-    cursor: pointer;
+  width: 100%;
+  text-align: center;
+  font-size: 1.5rem;
+  color: white;
+  cursor: pointer;
+  border-spacing: 8px;
 }
+
 button {
   background: #161b22;
   color: bisque;
   font-weight: bolder;
-  font-size: 1.7rem;
+  font-size: 1.3rem;
   border: none;
   padding: 15px;
   margin: 5px;
   border-radius: 10px;
   cursor: pointer;
   transition: 0.2s;
-  height: 70px;
-  width: 84px;
-}
-button:active { 
-    box-shadow: inset 6px 6px 12px #c6d0df, 
-    inset -6px -6px 12px #ffffff; 
+  width: 100%;
+  height: 60px;
 }
 
-#container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding: 20px;
-    border-radius: 16px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.6);
-    background-color: #0d1117;
+button:active {
+  box-shadow: inset 6px 6px 12px #c6d0df, inset -6px -6px 12px #ffffff;
 }
-input {
-    background: #0d1117;
-    color: #fff;
-    font-weight: bolder ;
-    font-size: 1.5rem;
-    text-align: right;
-    padding: 15px;
-    border-radius: 10px;
-    margin-bottom: 15px;
-}
+
 .special {
-    background-color: orange;
+  background-color: orange;
 }
+
 .special:active {
-    box-shadow: inset 6px 6px 20px #000 , inset -6px -6px 12px #000
+  box-shadow: inset 6px 6px 20px #000, inset -6px -6px 12px #000;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  button {
+    font-size: 1.1rem;
+    height: 55px;
+  }
+
+  input {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  #container {
+    width: 95%;
+    padding: 15px;
+  }
+
+  table {
+    font-size: 1.2rem;
+  }
+
+  button {
+    font-size: 1rem;
+    height: 50px;
+    margin: 4px;
+  }
+
+  input {
+    font-size: 1.1rem;
+  }
 }
