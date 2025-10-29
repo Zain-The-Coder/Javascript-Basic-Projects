@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Expense Tracker</h1>
+    <div>
+        <h2 id="budget-amount"></h2>
+        <input type="number" name="budget-taker" id="budget" placeholder="Enter Your Budget">
+        <button onclick="setBudget()">Add Budget</button>
+    </div>
+    <hr>
+    <div>
+        <label for="expense-name">
+            Enter Expense Name : 
+        </label>
+        <input type="text" name="expense-taker" id="expense-name">
+        <label for="expense-amount">
+            Enter Your Expense Amount
+        </label>
+        <input type="number" name="expense-number" id="expense-amount">
+        <button onclick="setExpense()">Add Expense</button>
+    </div>
+        <ul id="expense-list">
+
+        </ul>
+        <p id="summary"></p>
+    <script src="app.js"></script>
+</body>
+</html>
