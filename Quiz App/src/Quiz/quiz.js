@@ -1,3 +1,10 @@
+let option1 = document.getElementById("option-1")
+let option2 = document.getElementById("option-2")
+let option3 = document.getElementById("option-3")
+let option4 = document.getElementById("option-4")
+let question = document.getElementById("question");
+let questionNo = document.getElementById("questionNo");
+
 const questions = [
   {
     id: 1,
@@ -66,11 +73,70 @@ const questions = [
   }
 ];
 
-let minute = 59;
-let second;;
+let index = 0 ;
 
-function decrement () {
-    for(let i = second ; i <= 0 ; i--) {
-        console.log(i);
-    }
+function indexPlus () {
+  index++ ;
+  if(index === 10) {
+    index = 0 ;
+  }
+  console.log(index);
 }
+
+questions.forEach((i , v) => {
+  console.log(i , v);
+  
+});
+
+
+
+
+
+
+
+// function questionsSelector () {
+
+// }
+
+// function optionsSelector () {
+// }
+
+
+// questions.forEach((value) => {
+//   let firstOption = value.options[0];
+//   let secondOption = value.options[1];
+//   let thirdOption = value.options[2];
+//   let fourthOption = value.options[3];
+// })
+
+
+
+
+
+// let x = document.getElementById("list-item");
+let timer = document.getElementById("timer");
+let userName = document.getElementById("userName");
+
+userName.innerHTML = "User Name : " + localStorage.getItem("userName");
+
+let minute = 1;
+let second = 60 ;
+
+let myInterval = setInterval(() => {
+  if(second === 0 && minute === 0) {
+    clearInterval(myInterval)
+    return;
+  }
+  if (second === 0) {
+    minute--;
+    second = 59;
+  } else {
+    second--;
+  } 
+   if(second > 9) {
+    timer.innerHTML = "0" + minute + " : " + second ;
+  } else {
+    timer.innerHTML = "0" + minute + " : 0" + second ;
+  }
+
+}, 100);

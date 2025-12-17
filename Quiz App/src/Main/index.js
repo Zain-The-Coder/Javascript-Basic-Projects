@@ -17,6 +17,7 @@ function buttonPressed () {
         errorPrinter.innerHTML = "Check Password !";
         return ;
     }
+    localStorage.setItem("userName" , firstInput.value)
     errorPrinter.innerHTML = "Let's go to quiz >" ;
     gotoQuiz();
     
