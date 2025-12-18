@@ -202,56 +202,20 @@
   .mt-\[30px\] {
     margin-top: 30px;
   }
-  .mb-10 {
-    margin-bottom: calc(var(--spacing) * 10);
-  }
   .block {
     display: block;
   }
   .flex {
     display: flex;
   }
-  .inline {
-    display: inline;
-  }
-  .inline-block {
-    display: inline-block;
-  }
   .list-item {
     display: list-item;
-  }
-  .table {
-    display: table;
-  }
-  .h-\[0px\] {
-    height: 0px;
   }
   .h-\[6vh\] {
     height: 6vh;
   }
-  .h-\[10\%\] {
-    height: 10%;
-  }
-  .h-\[10px\] {
-    height: 10px;
-  }
-  .h-\[10vh\] {
-    height: 10vh;
-  }
-  .h-\[20\%\] {
-    height: 20%;
-  }
-  .h-\[20vh\] {
-    height: 20vh;
-  }
-  .h-\[40px\] {
-    height: 40px;
-  }
   .min-h-screen {
     min-height: 100vh;
-  }
-  .w-1 {
-    width: calc(var(--spacing) * 1);
   }
   .w-1\/2 {
     width: calc(1/2 * 100%);
@@ -271,23 +235,14 @@
   .max-w-xl {
     max-width: var(--container-xl);
   }
-  .border-collapse {
-    border-collapse: collapse;
-  }
   .cursor-pointer {
     cursor: pointer;
-  }
-  .resize {
-    resize: both;
   }
   .flex-col {
     flex-direction: column;
   }
   .items-center {
     align-items: center;
-  }
-  .justify-around {
-    justify-content: space-around;
   }
   .justify-between {
     justify-content: space-between;
@@ -334,16 +289,9 @@
   .rounded-xl {
     border-radius: var(--radius-xl);
   }
-  .border {
-    border-style: var(--tw-border-style);
-    border-width: 1px;
-  }
   .border-b {
     border-bottom-style: var(--tw-border-style);
     border-bottom-width: 1px;
-  }
-  .border-b-white {
-    border-bottom-color: var(--color-white);
   }
   .bg-gray-700 {
     background-color: var(--color-gray-700);
@@ -375,9 +323,6 @@
   .px-4 {
     padding-inline: calc(var(--spacing) * 4);
   }
-  .px-\[20px\] {
-    padding-inline: 20px;
-  }
   .py-2 {
     padding-block: calc(var(--spacing) * 2);
   }
@@ -390,17 +335,8 @@
   .py-\[60px\] {
     padding-block: 60px;
   }
-  .pr-\[40px\] {
-    padding-right: 40px;
-  }
   .pr-\[100px\] {
     padding-right: 100px;
-  }
-  .pb-\[20px\] {
-    padding-bottom: 20px;
-  }
-  .pl-\[20px\] {
-    padding-left: 20px;
   }
   .pl-\[30px\] {
     padding-left: 30px;
@@ -408,19 +344,12 @@
   .text-center {
     text-align: center;
   }
-  .font-\[pop\] {
-    font-family: pop;
-  }
   .font-\[poppins\] {
     font-family: poppins;
   }
   .text-2xl {
     font-size: var(--text-2xl);
     line-height: var(--tw-leading, var(--text-2xl--line-height));
-  }
-  .text-3xl {
-    font-size: var(--text-3xl);
-    line-height: var(--tw-leading, var(--text-3xl--line-height));
   }
   .text-4xl {
     font-size: var(--text-4xl);
@@ -433,9 +362,6 @@
   .text-xl {
     font-size: var(--text-xl);
     line-height: var(--tw-leading, var(--text-xl--line-height));
-  }
-  .text-\[30px\] {
-    font-size: 30px;
   }
   .text-\[40px\] {
     font-size: 40px;
@@ -467,9 +393,6 @@
   .uppercase {
     text-transform: uppercase;
   }
-  .underline {
-    text-decoration-line: underline;
-  }
   .placeholder-gray-400 {
     &::placeholder {
       color: var(--color-gray-400);
@@ -482,10 +405,6 @@
   .shadow-md {
     --tw-shadow: 0 4px 6px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 2px 4px -2px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
-  }
-  .outline {
-    outline-style: var(--tw-outline-style);
-    outline-width: 1px;
   }
   .transition {
     transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter, display, content-visibility, overlay, pointer-events;
@@ -638,11 +557,6 @@
   inherits: false;
   initial-value: 0 0 #0000;
 }
-@property --tw-outline-style {
-  syntax: "*";
-  inherits: false;
-  initial-value: solid;
-}
 @property --tw-duration {
   syntax: "*";
   inherits: false;
@@ -668,7 +582,6 @@
       --tw-ring-offset-width: 0px;
       --tw-ring-offset-color: #fff;
       --tw-ring-offset-shadow: 0 0 #0000;
-      --tw-outline-style: solid;
       --tw-duration: initial;
     }
   }
