@@ -5,6 +5,8 @@ let option4 = document.getElementById("option-4")
 let question = document.getElementById("question");
 let questionNo = document.getElementById("questionNo");
 let button = document.getElementById("btn");
+let finishBtn = document.getElementById("button");
+finishBtn.style.display = "none" ;
 
 const questions = [
   // PHYSICS
@@ -88,6 +90,9 @@ const questions = [
   }
 ];
 
+button.innerHTML = "Next" ;
+let userAnswer;
+
 
 questionNo.innerHTML = "Question No 1" ;
 question.innerHTML = questions[0].question;
@@ -100,8 +105,28 @@ option4.textContent = questions[0].options[3];
 let questionIndex = 2;
 let questionName = 1 ;
 let questionOption = 0 ;
+let correctAnswers = 0 ;
+
+finishBtn.addEventListener("click" , () => {
+  let correct = questions[9].correctAnswer ;
+    if(correct === userAnswer) {
+    correctAnswers++ ;
+  }
+  localStorage.setItem("correctAnswers" , correctAnswers);
+  if(localStorage.getItem("correctAnswers") >= 5) {
+    window.location.href = "./winner.html" ;
+  } else {
+    window.location.href = "./fail.html" ;
+  }
+    button.style.display = "none" ;
+    finishBtn.style.display = "block" ;
+
+
+
+})
 
 function indexPlus () {
+  addAllEventListeners();
   if(option1.style.backgroundColor === "black" || option2.style.backgroundColor === "black" ||
     option3.style.backgroundColor === "black" || option4.style.backgroundColor === "black") {
       option1.style.backgroundColor = "#374151" ;
@@ -109,9 +134,19 @@ function indexPlus () {
       option3.style.backgroundColor = "#374151" ;
       option4.style.backgroundColor = "#374151" ;
 
+
   questionNo.innerHTML = "Question No " + questionIndex++ ;
 
+//question wala error 
   question.innerHTML = questions[questionName].question;
+
+  let correct = questions[questionOption].correctAnswer;
+  if(correct == userAnswer) {
+    correctAnswers++ ;
+  }
+
+
+  console.log(correctAnswers);
   questionName++ ;
 
 
@@ -119,6 +154,7 @@ function indexPlus () {
   if (questionOption >= questions.length) {
     questionOption = 0;
   }
+
   option1.textContent = questions[questionOption].options[0];
   option2.textContent = questions[questionOption].options[1];
   option3.textContent = questions[questionOption].options[2];
@@ -126,47 +162,75 @@ function indexPlus () {
 
 
 
-
   if(question[questionName] === 10) {
-    questionName = 0;
+    questionName = -1;
   }
-  if(questionName === 10) {
-    button.innerHTML = "End Quiz" ;
+  if(questionIndex === 11) {
+    button.style.display = "none" ;
+    finishBtn.style.display = "block" ;
   }
+
 }
+}
+
+
+function addAllEventListeners() {
+    option1.addEventListener("click", firstFunction);
+    option2.addEventListener("click", secondFunction);
+    option3.addEventListener("click", thirdFunction);
+    option4.addEventListener("click", fourthFunction);
+}
+
+function removeAllEventListeners() {
+    option1.removeEventListener("click", firstFunction);
+    option2.removeEventListener("click", secondFunction);
+    option3.removeEventListener("click", thirdFunction);
+    option4.removeEventListener("click", fourthFunction);
 }
 
 function firstFunction () {
   option1.style.backgroundColor = "black" ;
-    option2.removeEventListener("click" , secondFunction);
-    option3.removeEventListener("click" , thirdFunction);
-    option4.removeEventListener("click" , fourthFunction);
+  removeAllEventListeners();
+    userAnswer = option1.textContent ;
 };
 
 function secondFunction () {
   option2.style.backgroundColor = "black" ;
-    option1.removeEventListener("click" , firstFunction);
-    option3.removeEventListener("click" , thirdFunction);
-    option4.removeEventListener("click" , fourthFunction);
+  removeAllEventListeners();
+    userAnswer = option2.textContent ;
 };
 function thirdFunction () {
   option3.style.backgroundColor = "black" ;
-    option2.removeEventListener("click" , secondFunction);
-    option1.removeEventListener("click" , firstFunction);
-    option4.removeEventListener("click" , fourthFunction);
+  removeAllEventListeners();
+    userAnswer = option3.textContent ;
 };
 function fourthFunction () {
   option4.style.backgroundColor = "black" ;
-    option2.removeEventListener("click" , secondFunction);
-    option3.removeEventListener("click" , thirdFunction);
-    option1.removeEventListener("click" , firstFunction);
+    removeAllEventListeners();
+    userAnswer = option4.textContent ;
 };
+addAllEventListeners();
 
-option1.addEventListener("click" , firstFunction);
-option2.addEventListener("click" , secondFunction);
-option3.addEventListener("click" , thirdFunction);
-option4.addEventListener("click" , fourthFunction);
 
+function old () {
+      // Remove old event listeners (safety)
+    option1.replaceWith(option1.cloneNode(true));
+    option2.replaceWith(option2.cloneNode(true));
+    option3.replaceWith(option3.cloneNode(true));
+    option4.replaceWith(option4.cloneNode(true));
+
+    // Re-select the new elements after cloning
+    option1 = document.getElementById("option1");
+    option2 = document.getElementById("option2");
+    option3 = document.getElementById("option3");
+    option4 = document.getElementById("option4");
+
+    // Re-attach event listeners
+    option1.addEventListener("click", firstFunction);
+    option2.addEventListener("click", secondFunction);
+    option3.addEventListener("click", thirdFunction);
+    option4.addEventListener("click", fourthFunction);
+}
 
 let timer = document.getElementById("timer");
 let userName = document.getElementById("userName");
@@ -178,7 +242,8 @@ let second = 60 ;
 
 let myInterval = setInterval(() => {
   if(second === 0 && minute === 0) {
-    clearInterval(myInterval)
+    clearInterval(myInterval);
+    window.location.href = "./timeup.html" ;
     return;
   }
   if (second === 0) {

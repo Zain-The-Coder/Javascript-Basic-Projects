@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Application</title>
+    <link rel="stylesheet" href="../output.css">
+</head>
+<body class="bg-gray-900 text-gray-100 flex items-center justify-center min-h-screen">
+
+    <div class="bg-gray-800 rounded-3xl p-12 flex flex-col items-center space-y-6 shadow-md w-[90%] max-w-md">
+        <div class="text-6xl animate-bounce text-yellow-400">⏰</div>
+
+        <h1 class="text-4xl font-bold text-yellow-400 text-center animate-pulse">Time's Up!</h1>
+
+        <p class="text-gray-300 text-center text-lg"> You ran out of time. Try to be faster next time!</p>
+
+        <div class="bg-gray-700 w-full p-6 rounded-2xl flex flex-col items-center space-y-3">
+            <p class="text-gray-100 text-xl">Your Score:</p>
+            <p id="resultShow" class="text-3xl font-bold text-yellow-400"></p>
+        </div>
+
+        <div class="flex space-x-4 mt-4">
+            <button id="result" class="px-6 py-2 bg-gray-600 hover:bg-gray-700 rounded-xl font-semibold transition">Exit</button>
+        </div>
+
+        <p class="text-yellow-400 text-sm mt-4 animate-pulse">⚠️⏳⚠️</p>
+
+    </div>
+
+    <script>
+        let result = document.getElementById("result");
+        let resultant = document.getElementById("resultPrinter");
+        result.addEventListener("click" , ()  => {zain/parseFloat
+            console.log("hello world")
+            window.location.href = "../Main/index.html";
+        }) 
+        let ans = localStorage.getItem("correctAnswers");
+        resultant.innerHTML = ans + " / 10" ;
+    </script>
+</body>
+</html>

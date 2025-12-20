@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Application</title>
+    <link rel="stylesheet" href="../output.css">
+</head>
+<body class="bg-gray-900 text-gray-100 flex items-center justify-center min-h-screen">
+
+    <div class="bg-gray-800 rounded-3xl p-12 flex flex-col items-center space-y-6 shadow-xl w-[90%] max-w-md">
+
+        <div class="text-6xl animate-bounce text-yellow-400">🏆</div>
+
+        <h1 class="text-4xl font-bold text-indigo-400 text-center animate-pulse">Congratulations!</h1>
+
+        <p class="text-gray-300 text-center text-lg">You have successfully completed the quiz and emerged as the winner!</p>
+
+        <div class="bg-gray-700 w-full p-6 rounded-2xl flex flex-col items-center space-y-3">
+            <p class="text-gray-100 text-xl">Your Score:</p>
+            <p id="resultPrinter" class="text-3xl font-bold text-green-400"></p>
+        </div>
+
+        <div class="flex space-x-4 mt-4">
+            <button id="playAgain" class="px-6 py-2 bg-indigo-500 hover:bg-indigo-600 rounded-xl font-semibold transition">Play Again</button>
+            <button id="exit" class="px-6 py-2 bg-gray-600 hover:bg-gray-700 rounded-xl font-semibold transition">Exit</button>
+        </div>
+
+        <p class="text-yellow-400 text-sm mt-4 animate-pulse">🎉🎉🎉</p>
+
+    </div>
+
+        let playAgain  = document.getElementById("playAgain");
+        let exit = document.getElementById("exit");
+
+        playAgain.addEventListener("click" , () => {
+            window.location.href = "./quiz.html" ;
+        })
+        exit.addEventListener("click" , () => {
+            window.location.href = "../Main/index.html" ;
+        })
+
+    <script>
+        let result = document.getElementById("resultPrinter");
+        let playAgain  = document.getElementById("playAgain");
+        let exit = document.getElementById("exit");
+        let ans = localStorage.getItem("correctAnswers");
+        result.innerHTML = ans + " / 10" ;
+        playAgain.addEventListener("click" , () => {
+            window.location.href = "./quiz.html" ;
+        })
+        exit.addEventListener("click" , () => {
+            window.location.href = "../Main/index.html" ;
+        })
+
+   </script>
+</body>
+</html>
