@@ -1,0 +1,27 @@
+@media(max-width:640px) {
+    section {
+        text-align: center;
+        margin-top: 80px;
+        height: 40vh;
+    }
+    h1 {
+        font-size: 28px;
+    }
+    #div {
+        width: 70%;
+        margin: auto;
+    }
+}
+@media(max-width:500px) {
+    section {
+        text-align: center;
+        margin-top: 60px;
+       height: 40vh;
+    }
+    h1 {
+        font-size: 20px;
+    }
+    #div {
+        width: 100%;
+    }
+}

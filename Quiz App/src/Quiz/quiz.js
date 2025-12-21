@@ -9,85 +9,85 @@ let finishBtn = document.getElementById("button");
 finishBtn.style.display = "none" ;
 
 const questions = [
-  // PHYSICS
-  {
-    id: 1,
-    question: "Which instrument is used to measure temperature?",
-    options: ["Barometer", "Thermometer", "Hygrometer", "Ammeter"],
-    correctAnswer: "Thermometer"
-  },
+{
+  id: 1,
+  question: "Which part of the human brain is primarily responsible for balance and coordination?",
+  options: ["Cerebrum", "Medulla", "Cerebellum", "Hypothalamus"],
+  correctAnswer: "Cerebellum"
+},
 
-  // CHEMISTRY
-  {
-    id: 2,
-    question: "What is the chemical symbol of water?",
-    options: ["O2", "CO2", "H2O", "HO"],
-    correctAnswer: "H2O"
-  },
+// CHEMISTRY
+{
+  id: 2,
+  question: "Which acid is naturally present in citrus fruits and is responsible for their sour taste?",
+  options: ["Acetic acid", "Citric acid", "Lactic acid", "Sulfuric acid"],
+  correctAnswer: "Citric acid"
+},
 
-  // MATHS
-  {
-    id: 3,
-    question: "What is the square of 5?",
-    options: ["10", "20", "25", "30"],
-    correctAnswer: "25"
-  },
+// MATHS
+{
+  id: 3,
+  question: "Which of the following numbers is a prime number?",
+  options: ["21", "27", "29", "33"],
+  correctAnswer: "29"
+},
 
-  // ISLAMIAT
-  {
-    id: 4,
-    question: "How many daily prayers (Farz) are there in Islam?",
-    options: ["3", "4", "5", "6"],
-    correctAnswer: "5"
-  },
+// ISLAMIAT
+{
+  id: 4,
+  question: "Which Surah of the Quran was revealed completely in Madinah?",
+  options: ["Surah Al-Fatiha", "Surah Al-Ikhlas", "Surah Al-Baqarah", "Surah Al-Alaq"],
+  correctAnswer: "Surah Al-Baqarah"
+},
 
-  // COMPUTER
-  {
-    id: 5,
-    question: "Which button is used to turn ON a computer?",
-    options: ["Reset", "Power", "Shift", "Enter"],
-    correctAnswer: "Power"
-  },
+// COMPUTER
+{
+  id: 5,
+  question: "Which type of memory is volatile and loses data when the computer is turned off?",
+  options: ["ROM", "Hard Disk", "RAM", "SSD"],
+  correctAnswer: "RAM"
+},
 
-  // PHYSICS
-  {
-    id: 6,
-    question: "Which unit is used to measure force?",
-    options: ["Joule", "Newton", "Watt", "Pascal"],
-    correctAnswer: "Newton"
-  },
+// PHYSICS
+{
+  id: 6,
+  question: "Which physical quantity is measured in Hertz (Hz)?",
+  options: ["Force", "Energy", "Frequency", "Pressure"],
+  correctAnswer: "Frequency"
+},
 
-  // CHEMISTRY
-  {
-    id: 7,
-    question: "Which gas is essential for breathing?",
-    options: ["Nitrogen", "Hydrogen", "Oxygen", "Carbon dioxide"],
-    correctAnswer: "Oxygen"
-  },
+// CHEMISTRY
+{
+  id: 7,
+  question: "Which gas is released during the process of photosynthesis?",
+  options: ["Carbon dioxide", "Oxygen", "Nitrogen", "Hydrogen"],
+  correctAnswer: "Oxygen"
+},
 
-  // MATHS
-  {
-    id: 8,
-    question: "What is the value of 7 × 6?",
-    options: ["36", "40", "42", "48"],
-    correctAnswer: "42"
-  },
+// MATHS
+{
+  id: 8,
+  question: "What is the value of π (pi) correct to two decimal places?",
+  options: ["3.12", "3.14", "3.16", "3.18"],
+  correctAnswer: "3.14"
+},
 
-  // ISLAMIAT
-  {
-    id: 9,
-    question: "Which month do Muslims fast in?",
-    options: ["Shaban", "Ramadan", "Muharram", "Safar"],
-    correctAnswer: "Ramadan"
-  },
+// ISLAMIAT
+{
+  id: 9,
+  question: "Which Islamic law deals with inheritance distribution?",
+  options: ["Fiqh", "Tafsir", "Ilm-ul-Faraiz", "Hadith"],
+  correctAnswer: "Ilm-ul-Faraiz"
+},
 
-  // URDU
-  {
-    id: 10,
-    question: "Who is known as the national poet of Pakistan?",
-    options: ["Mirza Ghalib", "Allama Iqbal", "Faiz Ahmed Faiz", "Josh Malihabadi"],
-    correctAnswer: "Allama Iqbal"
-  }
+// URDU
+{
+  id: 10,
+  question: "Which literary term is used for a long narrative poem describing heroic deeds?",
+  options: ["Ghazal", "Marsiya", "Qasida", "Masnavi"],
+  correctAnswer: "Masnavi"
+}
+
 ];
 
 button.innerHTML = "Next" ;
@@ -238,7 +238,7 @@ let userName = document.getElementById("userName");
 userName.innerHTML = "User Name : " + localStorage.getItem("userName");
 
 let minute = 1;
-let second = 60 ;
+let second = 30 ;
 
 let myInterval = setInterval(() => {
   if(second === 0 && minute === 0) {
@@ -253,9 +253,9 @@ let myInterval = setInterval(() => {
     second--;
   } 
    if(second > 9) {
-    timer.innerHTML = "0" + minute + " : " + second ;
+    timer.innerHTML ="Timer : " + "0" + minute + " : " + second ;
   } else {
-    timer.innerHTML = "0" + minute + " : 0" + second ;
+    timer.innerHTML ="Timer : " + "0" + minute + " : 0" + second ;
   }
 
 }, 1000);

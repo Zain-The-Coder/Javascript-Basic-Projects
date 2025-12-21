@@ -22,8 +22,8 @@
         </div>
 
         <div class="flex space-x-4 mt-4">
-            <button id="playAgain class="px-6 py-2 bg-indigo-500 hover:bg-indigo-600 rounded-xl font-semibold transition">Try Again</button>
-            <button id="exit" class="px-6 py-2 bg-gray-600 hover:bg-gray-700 rounded-xl font-semibold transition">Exit</button>
+            <button onclick="playAgain()" class="px-6 py-2 bg-indigo-500 hover:bg-indigo-600 rounded-xl font-semibold transition">Try Again</button>
+            <button onclick="exit()" class="px-6 py-2 bg-gray-600 hover:bg-gray-700 rounded-xl font-semibold transition">Exit</button>
         </div>
 
         <p class="text-red-400 text-sm mt-4 animate-pulse">💔💔💔</p>
@@ -34,18 +34,16 @@
     <script>
         let result = document.getElementById("resultPrinter");
         let ans = localStorage.getItem("correctAnswers");
-        let playAgain  = document.getElementById("playAgain");
-        let exit = document.getElementById("exit");
 
 
         result.innerHTML = ans + " / 10" ;   
 
-        playAgain.addEventListener("click" , () => {
+        function playAgain () {
             window.location.href = "./quiz.html" ;
-        })
-        exit.addEventListener("click" , () => {
+        }
+        function exit () {
             window.location.href = "../Main/index.html" ;
-        })
+        }
      </script>
 </body>
 </html>
